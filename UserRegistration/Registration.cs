@@ -7,8 +7,8 @@ namespace UserRegistration
 {
     class Registration
     {
-        string firstNameRegex = "^[A-Z][a-z]{2,}";
-        string lastNameRegex = "^[A-Z][a-z]{2,}";
+        string firstNameRegex = "^[A-Z][a-z]{2,}$";
+        string lastNameRegex = "^[A-Z][a-z]{2,}$";
         public void FirstName()
         {
             Console.WriteLine("Enter your First Name");
