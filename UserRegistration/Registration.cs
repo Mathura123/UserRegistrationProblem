@@ -7,7 +7,7 @@ namespace UserRegistration
 {
     class Registration
     {
-        string firstNameRegex = "^[A-Z][a-z]{3,}";
+        string firstNameRegex = "^[A-Z][a-z]{2,}";
         public bool validateFirstName(string firstName)
         {
             return Regex.IsMatch(firstName, firstNameRegex);
