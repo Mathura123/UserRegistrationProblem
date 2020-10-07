@@ -10,6 +10,7 @@ namespace UserRegistration
             Registration user = new Registration();
             user.FirstName();
             user.LastName();
+            user.EmailId();
         }
     }
 }

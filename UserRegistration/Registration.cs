@@ -7,8 +7,9 @@ namespace UserRegistration
 {
     class Registration
     {
-        string firstNameRegex = "^[A-Z][a-z]{2,}";
-        string lastNameRegex = "^[A-Z][a-z]{2,}";
+        string firstNameRegex = "^[A-Z][a-z]{2,}$";
+        string lastNameRegex = "^[A-Z][a-z]{2,}$";
+        string emailRegex = "^[a-zA-z0-9]+(.[a-zA-Z0-9]+)*@[a-zA-z0-9]+(.[a-zA-z]*)+$";
         public void FirstName()
         {
             Console.WriteLine("Enter your First Name");
@@ -37,6 +38,20 @@ namespace UserRegistration
                 LastName();
             }
         }
+        public void EmailId()
+        {
+            Console.WriteLine("Enter your Email Id");
+            string emailId = Console.ReadLine();
+            if (ValidateEmailId(emailId) == true)
+            {
+                Console.WriteLine("Valid Email Id");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Email Id\nTry again");
+                EmailId();
+            }
+        }
         private bool ValidateFirstName(string firstName)
         {
             return Regex.IsMatch(firstName, firstNameRegex);
@@ -44,6 +59,10 @@ namespace UserRegistration
         private bool ValidateLastName(string lastName)
         {
             return Regex.IsMatch(lastName, lastNameRegex);
+        }
+        private bool ValidateEmailId(string email)
+        {
+            return Regex.IsMatch(email, emailRegex);
         }
     }
 }
