@@ -9,7 +9,7 @@ namespace UserRegistration
     {
         string firstNameRegex = "^[A-Z][a-z]{2,}$";
         string lastNameRegex = "^[A-Z][a-z]{2,}$";
-        string emailRegex = "^[a-zA-z0-9]+(.[a-zA-Z0-9]+)*@[a-zA-z0-9]+(.[a-zA-z]*)+$";
+        string emailRegex = "^[a-zA-z0-9]+(.[a-zA-Z0-9]+)*@[a-zA-z0-9]+(.[a-zA-z]+)+$";
         public void FirstName()
         {
             Console.WriteLine("Enter your First Name");
