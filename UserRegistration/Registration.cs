@@ -11,7 +11,7 @@ namespace UserRegistration
         string lastNameRegex = "^[A-Z][a-z]{2,}$";
         string emailRegex = "^[a-zA-z0-9]+(.[a-zA-Z0-9]+)*@[a-zA-z0-9]+(.[a-zA-z]+)+$";
         string mobileNoRegex = "^[0-9]+[ ][1-9][0-9]{9}$";
-        string passwordRegex = "^.*(?=.{8,})(?=.*[A-Z]).*$";
+        string passwordRegex = "^.*(?=.{8,})(?=.*[A-Z])(?=.*[0-9]).*$";
         public void FirstName()
         {
             Console.WriteLine("Enter your First Name");

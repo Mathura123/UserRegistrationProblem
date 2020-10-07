@@ -8,10 +8,10 @@ namespace UserRegistration
         {
             Console.WriteLine("Welcome to User Registration Problem in Main Branch");
             Registration user = new Registration();
-            //user.FirstName();
-            //user.LastName();
-            //user.EmailId();
-            //user.MobileNo();
+            user.FirstName();
+            user.LastName();
+            user.EmailId();
+            user.MobileNo();
             user.Password();
         }
     }
