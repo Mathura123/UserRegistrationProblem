@@ -11,6 +11,7 @@ namespace UserRegistration
         string lastNameRegex = "^[A-Z][a-z]{2,}$";
         string emailRegex = "^[a-zA-z0-9]+(.[a-zA-Z0-9]+)*@[a-zA-z0-9]+(.[a-zA-z]+)+$";
         string mobileNoRegex = "^[0-9]+[ ][1-9][0-9]{9}$";
+        string passwordRegex = "^.{8,}$";
         public void FirstName()
         {
             Console.WriteLine("Enter your First Name");
@@ -67,6 +68,20 @@ namespace UserRegistration
                 MobileNo();
             }
         }
+        public void Password()
+        {
+            Console.WriteLine("Enter your password");
+            string password = Console.ReadLine();
+            if (ValidatePassword(password) == true)
+            {
+                Console.WriteLine("Valid Password");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Password\nTry again");
+                Password();
+            }
+        }
         private bool ValidateFirstName(string firstName)
         {
             return Regex.IsMatch(firstName, firstNameRegex);
@@ -82,6 +97,10 @@ namespace UserRegistration
         private bool ValidateMobileNo(string no)
         {
             return Regex.IsMatch(no, mobileNoRegex);
+        }
+        private bool ValidatePassword(string pass)
+        {
+            return Regex.IsMatch(pass, passwordRegex);
         }
     }
 }
