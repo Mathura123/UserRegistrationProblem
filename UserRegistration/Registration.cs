@@ -26,6 +26,18 @@ namespace UserRegistration
                 FirstName();
             }
         }
+        public string FirstName(string firstName)
+        {
+            if (ValidateFirstName(firstName) == true)
+            {
+                return "Valid First Name";
+            }
+            else
+            {
+                return "Invalid First Name";
+            }
+        }
+
         public void LastName()
         {
             Console.WriteLine("Enter your Last Name");
@@ -40,6 +52,18 @@ namespace UserRegistration
                 LastName();
             }
         }
+        public string LastName(string lastName)
+        {
+            if (ValidateLastName(lastName) == true)
+            {
+               return "Valid Last Name";
+            }
+            else
+            {
+                return "Invalid Last Name";
+            }
+        }
+
         public void EmailId()
         {
             Console.WriteLine("Enter your Email Id");
@@ -53,6 +77,17 @@ namespace UserRegistration
             {
                 Console.WriteLine("Invalid Email Id\nTry again");
                 EmailId();
+            }
+        }
+        public string EmailId(string emailId)
+        {
+            if (ValidateEmailId(emailId) == true)
+            {
+                return "Valid Email Id";
+            }
+            else
+            {
+                return "Invalid Email Id";
             }
         }
         public void MobileNo()
@@ -69,6 +104,17 @@ namespace UserRegistration
                 MobileNo();
             }
         }
+        public string MobileNo(string mobileNo)
+        {
+            if (ValidateMobileNo(mobileNo) == true)
+            {
+                return "Valid Mobile No";
+            }
+            else
+            {
+                return "Invalid Mobile No";
+            }
+        }
         public void Password()
         {
             Console.WriteLine("Enter your password");
@@ -83,6 +129,18 @@ namespace UserRegistration
                 Password();
             }
         }
+        public string Password(string password)
+        {
+            if (ValidatePassword(password) == true)
+            {
+                return "Valid Password";
+            }
+            else
+            {
+                return "Invalid Password";
+            }
+        }
+
         private bool ValidateFirstName(string firstName)
         {
             return Regex.IsMatch(firstName, firstNameRegex);
