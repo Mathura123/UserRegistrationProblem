@@ -61,5 +61,19 @@ namespace UserRegistrationUTests
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
+        [TestMethod]
+        public void ram_at_gmail_dot_com_Should_Return_Valid_Email_Id()
+        {
+            //Arrange
+            string expectedResult = "Valid Email Id";
+            string inputFirstName = "ram@gmail.com";
+            UserRegistration.Registration regObj = new UserRegistration.Registration();
+
+            //Act
+            string result = regObj.EmailId(inputFirstName);
+
+            //Assert
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
