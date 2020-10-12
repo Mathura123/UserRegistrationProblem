@@ -117,5 +117,19 @@ namespace UserRegistrationUTests
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
+        [TestMethod]
+        public void Pass_at_123word_Should_Return_Valid_Password()
+        {
+            //Arrange
+            string expectedResult = "Valid Password";
+            string inputFirstName = "Pass@123word";
+            UserRegistration.Registration regObj = new UserRegistration.Registration();
+
+            //Act
+            string result = regObj.Password(inputFirstName);
+
+            //Assert
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
