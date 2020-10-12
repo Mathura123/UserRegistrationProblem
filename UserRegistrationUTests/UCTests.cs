@@ -47,5 +47,19 @@ namespace UserRegistrationUTests
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
+        [TestMethod]
+        public void shukhla_Should_Return_Invalid_Last_Name()
+        {
+            //Arrange
+            string expectedResult = "Invalid Last Name";
+            string inputFirstName = "shukhla";
+            UserRegistration.Registration regObj = new UserRegistration.Registration();
+
+            //Act
+            string result = regObj.LastName(inputFirstName);
+
+            //Assert
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
