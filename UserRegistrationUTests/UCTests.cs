@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace UserRegistrationUTests
 {
     [TestClass]
-    public class UC1_First_Name_UTest
+    public class UTests
     {
         [TestMethod]
         public void Ram_Should_Return_Valid_First_Name()
@@ -29,6 +29,20 @@ namespace UserRegistrationUTests
 
             //Act
             string result = regObj.FirstName(inputFirstName);
+
+            //Assert
+            Assert.AreEqual(expectedResult, result);
+        }
+        [TestMethod]
+        public void Shukhla_Should_Return_Valid_Last_Name()
+        {
+            //Arrange
+            string expectedResult = "Valid Last Name";
+            string inputFirstName = "Shukhla";
+            UserRegistration.Registration regObj = new UserRegistration.Registration();
+
+            //Act
+            string result = regObj.LastName(inputFirstName);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
