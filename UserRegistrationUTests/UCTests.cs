@@ -103,5 +103,19 @@ namespace UserRegistrationUTests
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
+        [TestMethod]
+        public void Invalid_Mobile_No_Should_Return_Invalid_Mobile_No()
+        {
+            //Arrange
+            string expectedResult = "Invalid Mobile No";
+            string inputFirstName = "8978675645";
+            UserRegistration.Registration regObj = new UserRegistration.Registration();
+
+            //Act
+            string result = regObj.MobileNo(inputFirstName);
+
+            //Assert
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
