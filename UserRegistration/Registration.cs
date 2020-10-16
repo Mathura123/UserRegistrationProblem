@@ -22,8 +22,7 @@ namespace UserRegistration
             }
             else
             {
-                Console.WriteLine("Invalid First Name\nTry again");
-                FirstName();
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_FIRST_NAME, "Entered First Name is Invalid");
             }
         }
         public string FirstName(string firstName)
@@ -34,7 +33,7 @@ namespace UserRegistration
             }
             else
             {
-                return "Invalid First Name";
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_FIRST_NAME, "Entered First Name is Invalid");
             }
         }
 
@@ -48,8 +47,7 @@ namespace UserRegistration
             }
             else
             {
-                Console.WriteLine("Invalid Last Name\nTry again");
-                LastName();
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_LAST_NAME, "Entered Last Name is Invalid");
             }
         }
         public string LastName(string lastName)
@@ -60,7 +58,7 @@ namespace UserRegistration
             }
             else
             {
-                return "Invalid Last Name";
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_LAST_NAME, "Entered Last Name is Invalid");
             }
         }
 
@@ -75,8 +73,7 @@ namespace UserRegistration
             }
             else
             {
-                Console.WriteLine("Invalid Email Id\nTry again");
-                EmailId();
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_EMAIL, "Entered Email is Invalid");
             }
         }
         public string EmailId(string emailId)
@@ -87,7 +84,7 @@ namespace UserRegistration
             }
             else
             {
-                return "Invalid Email Id";
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_EMAIL, "Entered Email is Invalid");
             }
         }
         public void MobileNo()
@@ -100,8 +97,7 @@ namespace UserRegistration
             }
             else
             {
-                Console.WriteLine("Invalid Mobile No\nTry again");
-                MobileNo();
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_MOBILE_NO, "Entered Mobile No is Invalid");
             }
         }
         public string MobileNo(string mobileNo)
@@ -112,7 +108,7 @@ namespace UserRegistration
             }
             else
             {
-                return "Invalid Mobile No";
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_MOBILE_NO, "Entered Mobile No is Invalid");
             }
         }
         public void Password()
@@ -125,8 +121,7 @@ namespace UserRegistration
             }
             else
             {
-                Console.WriteLine("Invalid Password\nTry again");
-                Password();
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PASSWORD, "Entered Password is Invalid");
             }
         }
         public string Password(string password)
@@ -137,7 +132,7 @@ namespace UserRegistration
             }
             else
             {
-                return "Invalid Password";
+                throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PASSWORD, "Entered Password is Invalid");
             }
         }
 
