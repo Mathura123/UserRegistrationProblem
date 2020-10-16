@@ -62,45 +62,31 @@ namespace UserRegistrationUTests
             Assert.AreEqual(expectedResult, result);
         }
         [TestMethod]
-        [DataRow("abc@yahoo.com")]
-        [DataRow("abc-100@yahoo.com")]
-        [DataRow("abc-100@yahoo.com")]
-        [DataRow("abc-100@yahoo.com")]
-        [DataRow("abc-100@yahoo.com")]
-        [DataRow("abc.100@abc.com.au")]
-        [DataRow("abc@1.com")]
-        [DataRow("abc@gmail.com.com")]
-        [DataRow("abc+100@gmail.com")]
-        public void Valid_Email_Id_Should_Return_Valid_Email_Id(string input)
+        [DataRow("abc@yahoo.com", "Valid Email Id")]
+        [DataRow("abc-100@yahoo.com", "Valid Email Id")]
+        [DataRow("abc-100@yahoo.com", "Valid Email Id")]
+        [DataRow("abc-100@yahoo.com", "Valid Email Id")]
+        [DataRow("abc-100@yahoo.com", "Valid Email Id")]
+        [DataRow("abc.100@abc.com.au", "Valid Email Id")]
+        [DataRow("abc@1.com", "Valid Email Id")]
+        [DataRow("abc@gmail.com.com", "Valid Email Id")]
+        [DataRow("abc+100@gmail.com", "Valid Email Id")]
+        [DataRow("abc.com", "Invalid Email Id")]
+        [DataRow("abc123@gmail.a", "Invalid Email Id")]
+        [DataRow("abc123@.com", "Invalid Email Id")]
+        [DataRow("abc@.com.my", "Invalid Email Id")]
+        [DataRow("abc123@.com.com", "Invalid Email Id")]
+        [DataRow(".abc@abc.com", "Invalid Email Id")]
+        [DataRow("abc()*@gmail.com", "Invalid Email Id")]
+        [DataRow("abc@%*.com", "Invalid Email Id")]
+        [DataRow("abc..2002@gmail.com", "Invalid Email Id")]
+        [DataRow("abc.@gmail.com", "Invalid Email Id")]
+        [DataRow("abc@abc@gmail.com", "Invalid Email Id")]
+        [DataRow("abc@gmail.com.1a", "Invalid Email Id")]
+        [DataRow("abc@gmail.com.aa.au", "Invalid Email Id")]
+        public void Validation_Or_Invadation_Of_Email_Id(string input,string expectedResult)
         {
             //Arrange
-            string expectedResult = "Valid Email Id";
-            UserRegistration.Registration regObj = new UserRegistration.Registration();
-
-            //Act
-            string result = regObj.EmailId(input);
-
-            //Assert
-            Assert.AreEqual(expectedResult, result);
-        }
-        [TestMethod]
-        [DataRow("abc.com")]
-        [DataRow("abc123@gmail.a")]
-        [DataRow("abc123@.com")]
-        [DataRow("abc@.com.my")]
-        [DataRow("abc123@.com.com")]
-        [DataRow(".abc@abc.com")]
-        [DataRow("abc()*@gmail.com")]
-        [DataRow("abc@%*.com")]
-        [DataRow("abc..2002@gmail.com")]
-        [DataRow("abc.@gmail.com")]
-        [DataRow("abc@abc@gmail.com")]
-        [DataRow("abc@gmail.com.1a")]
-        [DataRow("abc@gmail.com.aa.au")]
-        public void Invalid_Email_Id_Should_Return_Invalid_Email_Id(string input)
-        {
-            //Arrange
-            string expectedResult = "Invalid Email Id";
             UserRegistration.Registration regObj = new UserRegistration.Registration();
 
             //Act
