@@ -10,11 +10,11 @@ namespace UserRegistrationUTests
         {
             //Arrange
             string expectedResult = "Valid First Name";
-            string inputFirstName = "Ram";
+            string input= "Ram";
             UserRegistration.Registration regObj = new UserRegistration.Registration();
 
             //Act
-            string result = regObj.FirstName(inputFirstName);
+            string result = regObj.FirstName(input);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
@@ -24,11 +24,11 @@ namespace UserRegistrationUTests
         {
             //Arrange
             string expectedResult = "Invalid First Name";
-            string inputFirstName = "ram";
+            string input = "ram";
             UserRegistration.Registration regObj = new UserRegistration.Registration();
 
             //Act
-            string result = regObj.FirstName(inputFirstName);
+            string result = regObj.FirstName(input);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
@@ -38,11 +38,11 @@ namespace UserRegistrationUTests
         {
             //Arrange
             string expectedResult = "Valid Last Name";
-            string inputFirstName = "Shukhla";
+            string input = "Shukhla";
             UserRegistration.Registration regObj = new UserRegistration.Registration();
 
             //Act
-            string result = regObj.LastName(inputFirstName);
+            string result = regObj.LastName(input);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
@@ -52,39 +52,59 @@ namespace UserRegistrationUTests
         {
             //Arrange
             string expectedResult = "Invalid Last Name";
-            string inputFirstName = "shukhla";
+            string input = "shukhla";
             UserRegistration.Registration regObj = new UserRegistration.Registration();
 
             //Act
-            string result = regObj.LastName(inputFirstName);
+            string result = regObj.LastName(input);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
         [TestMethod]
-        public void ram_at_gmail_dot_com_Should_Return_Valid_Email_Id()
+        [DataRow("abc@yahoo.com")]
+        [DataRow("abc-100@yahoo.com")]
+        [DataRow("abc-100@yahoo.com")]
+        [DataRow("abc-100@yahoo.com")]
+        [DataRow("abc-100@yahoo.com")]
+        [DataRow("abc.100@abc.com.au")]
+        [DataRow("abc@1.com")]
+        [DataRow("abc@gmail.com.com")]
+        [DataRow("abc+100@gmail.com")]
+        public void Valid_Email_Id_Should_Return_Valid_Email_Id(string input)
         {
             //Arrange
             string expectedResult = "Valid Email Id";
-            string inputFirstName = "ram@gmail.com";
             UserRegistration.Registration regObj = new UserRegistration.Registration();
 
             //Act
-            string result = regObj.EmailId(inputFirstName);
+            string result = regObj.EmailId(input);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
         [TestMethod]
-        public void ram_at_gmail_dot_com_dot_123_Should_Return_Invalid_Email_Id()
+        [DataRow("abc.com")]
+        [DataRow("abc123@gmail.a")]
+        [DataRow("abc123@.com")]
+        [DataRow("abc@.com.my")]
+        [DataRow("abc123@.com.com")]
+        [DataRow(".abc@abc.com")]
+        [DataRow("abc()*@gmail.com")]
+        [DataRow("abc@%*.com")]
+        [DataRow("abc..2002@gmail.com")]
+        [DataRow("abc.@gmail.com")]
+        [DataRow("abc@abc@gmail.com")]
+        [DataRow("abc@gmail.com.1a")]
+        [DataRow("abc@gmail.com.aa.au")]
+        public void Invalid_Email_Id_Should_Return_Invalid_Email_Id(string input)
         {
             //Arrange
             string expectedResult = "Invalid Email Id";
-            string inputFirstName = "ram@gmail.com.123";
             UserRegistration.Registration regObj = new UserRegistration.Registration();
 
             //Act
-            string result = regObj.EmailId(inputFirstName);
+            string result = regObj.EmailId(input);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
@@ -94,11 +114,11 @@ namespace UserRegistrationUTests
         {
             //Arrange
             string expectedResult = "Valid Mobile No";
-            string inputFirstName = "0 8978675645";
+            string input = "0 8978675645";
             UserRegistration.Registration regObj = new UserRegistration.Registration();
 
             //Act
-            string result = regObj.MobileNo(inputFirstName);
+            string result = regObj.MobileNo(input);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
@@ -108,81 +128,42 @@ namespace UserRegistrationUTests
         {
             //Arrange
             string expectedResult = "Invalid Mobile No";
-            string inputFirstName = "8978675645";
+            string input = "8978675645";
             UserRegistration.Registration regObj = new UserRegistration.Registration();
 
             //Act
-            string result = regObj.MobileNo(inputFirstName);
+            string result = regObj.MobileNo(input);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
         [TestMethod]
-        public void Pass_at_123word_Should_Return_Valid_Password()
+        public void Valid_Password_Should_Return_Valid_Password()
         {
             //Arrange
             string expectedResult = "Valid Password";
-            string inputFirstName = "Pass@123word";
+            string input = "Pass@123word";
             UserRegistration.Registration regObj = new UserRegistration.Registration();
 
             //Act
-            string result = regObj.Password(inputFirstName);
+            string result = regObj.Password(input);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
         }
         [TestMethod]
-        public void Pass_at_1_Should_Return_Invalid_Password()
+        [DataRow("Pass@1")]
+        [DataRow("pass@123word")]
+        [DataRow("Pass@word")]
+        [DataRow("Pass123word")]
+        public void Invalid_Password_Should_Return_Invalid_Password(string input)
         {
             //Arrange
             string expectedResult = "Invalid Password";
-            string inputFirstName = "Pass@1";
             UserRegistration.Registration regObj = new UserRegistration.Registration();
 
             //Act
-            string result = regObj.Password(inputFirstName);
-
-            //Assert
-            Assert.AreEqual(expectedResult, result);
-        }
-        [TestMethod]
-        public void pass_at_123word_Should_Return_Invalid_Password()
-        {
-            //Arrange
-            string expectedResult = "Invalid Password";
-            string inputFirstName = "pass@123word";
-            UserRegistration.Registration regObj = new UserRegistration.Registration();
-
-            //Act
-            string result = regObj.Password(inputFirstName);
-
-            //Assert
-            Assert.AreEqual(expectedResult, result);
-        }
-        [TestMethod]
-        public void Pass_at_word_Should_Return_Invalid_Password()
-        {
-            //Arrange
-            string expectedResult = "Invalid Password";
-            string inputFirstName = "Pass@word";
-            UserRegistration.Registration regObj = new UserRegistration.Registration();
-
-            //Act
-            string result = regObj.Password(inputFirstName);
-
-            //Assert
-            Assert.AreEqual(expectedResult, result);
-        }
-        [TestMethod]
-        public void Pass_123word_Should_Return_Invalid_Password()
-        {
-            //Arrange
-            string expectedResult = "Invalid Password";
-            string inputFirstName = "Pass123word";
-            UserRegistration.Registration regObj = new UserRegistration.Registration();
-
-            //Act
-            string result = regObj.Password(inputFirstName);
+            string result = regObj.Password(input);
 
             //Assert
             Assert.AreEqual(expectedResult, result);
