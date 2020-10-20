@@ -200,5 +200,33 @@ namespace UserRegistrationUTests
             bool result = registrationObj.Validation(detail, regex);
             Assert.AreEqual(expected, result);
         }
+        [TestMethod]
+        [DataRow("ram", "^[A-Z][a-z]{2,}$")]//Invalid First Name with firstNameRegex
+        [DataRow("shukhla", "^[A-Z][a-z]{2,}$")]//Invalid Last Name with lastNameRegex
+        [DataRow("abc.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]//Invalid Email Ids with emailRegex
+        [DataRow("abc123@gmail.a", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc123@.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc@.com.my", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc123@.com.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow(".abc@abc.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc()*@gmail.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc@%*.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc..2002@gmail.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc.@gmail.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc@abc@gmail.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc@gmail.com.1a", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc@gmail.com.aa.au", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("8978675645", "^[0-9]+[ ][1-9][0-9]{9}$")]//Invalid Mobile No with mobileNoRegex
+        [DataRow("Pass@1", "^.*(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])(?=^[A-Za-z0-9]*[^a-zA-Z0-9][A-Za-z0-9]*$)")]//Invalid Passwords with passwordRegex
+        [DataRow("pass@123word", "^.*(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])(?=^[A-Za-z0-9]*[^a-zA-Z0-9][A-Za-z0-9]*$)")]
+        [DataRow("Pass@word", "^.*(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])(?=^[A-Za-z0-9]*[^a-zA-Z0-9][A-Za-z0-9]*$)")]
+        [DataRow("Pass123word", "^.*(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])(?=^[A-Za-z0-9]*[^a-zA-Z0-9][A-Za-z0-9]*$)")]
+        public void Invalid_Details_Should_Return_False_In_Validate_Lambda_Function(string detail, string regex)
+        {
+            bool expected = false;
+            Registration registrationObj = new Registration();
+            bool result = registrationObj.Validation(detail, regex);
+            Assert.AreEqual(expected, result);
+        }
     }
 }
