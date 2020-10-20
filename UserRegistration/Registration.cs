@@ -135,26 +135,5 @@ namespace UserRegistration
                 throw new UserRegistrationException(UserRegistrationException.ExceptionType.INVALID_PASSWORD, "Entered Password is Invalid");
             }
         }
-
-        private bool ValidateFirstName(string firstName)
-        {
-            return Regex.IsMatch(firstName, firstNameRegex);
-        }
-        private bool ValidateLastName(string lastName)
-        {
-            return Regex.IsMatch(lastName, lastNameRegex);
-        }
-        private bool ValidateEmailId(string email)
-        {
-            return Regex.IsMatch(email, emailRegex);
-        }
-        private bool ValidateMobileNo(string no)
-        {
-            return Regex.IsMatch(no, mobileNoRegex);
-        }
-        private bool ValidatePassword(string pass)
-        {
-            return Regex.IsMatch(pass, passwordRegex);
-        }
     }
 }
