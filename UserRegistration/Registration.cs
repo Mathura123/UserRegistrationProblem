@@ -12,11 +12,12 @@ namespace UserRegistration
         string emailRegex = "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$";
         string mobileNoRegex = "^[0-9]+[ ][1-9][0-9]{9}$";
         string passwordRegex = "^.*(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])(?=^[A-Za-z0-9]*[^a-zA-Z0-9][A-Za-z0-9]*$)";
+        Func<string, string, bool> Validation = (string detail, string regex) => Regex.IsMatch(detail, regex);
         public void FirstName()
         {
             Console.WriteLine("Enter your First Name");
             string firstName = Console.ReadLine();
-            if (ValidateFirstName(firstName) == true)
+            if (Validation(firstName,firstNameRegex))
             {
                 Console.WriteLine("Valid First Name");
             }
@@ -27,7 +28,7 @@ namespace UserRegistration
         }
         public string FirstName(string firstName)
         {
-            if (ValidateFirstName(firstName) == true)
+            if (Validation(firstName, firstNameRegex))
             {
                 return "Valid First Name";
             }
@@ -41,7 +42,7 @@ namespace UserRegistration
         {
             Console.WriteLine("Enter your Last Name");
             string lastName = Console.ReadLine();
-            if (ValidateLastName(lastName) == true)
+            if (Validation(lastName, lastNameRegex))
             {
                 Console.WriteLine("Valid Last Name");
             }
@@ -52,7 +53,7 @@ namespace UserRegistration
         }
         public string LastName(string lastName)
         {
-            if (ValidateLastName(lastName) == true)
+            if (Validation(lastName, lastNameRegex))
             {
                return "Valid Last Name";
             }
@@ -66,10 +67,9 @@ namespace UserRegistration
         {
             Console.WriteLine("Enter your Email Id");
             string emailId = Console.ReadLine();
-            if (ValidateEmailId(emailId) == true)
+            if (Validation(emailId, emailRegex))
             {
                 Console.WriteLine("Valid Email Id");
-                EmailId();
             }
             else
             {
@@ -78,7 +78,7 @@ namespace UserRegistration
         }
         public string EmailId(string emailId)
         {
-            if (ValidateEmailId(emailId) == true)
+            if (Validation(emailId, emailRegex))
             {
                 return "Valid Email Id";
             }
@@ -91,7 +91,7 @@ namespace UserRegistration
         {
             Console.WriteLine("Enter your Mobile No");
             string mobileNo = Console.ReadLine();
-            if (ValidateMobileNo(mobileNo) == true)
+            if (Validation(mobileNo, mobileNoRegex))
             {
                 Console.WriteLine("Valid Mobile No");
             }
@@ -102,7 +102,7 @@ namespace UserRegistration
         }
         public string MobileNo(string mobileNo)
         {
-            if (ValidateMobileNo(mobileNo) == true)
+            if (Validation(mobileNo, mobileNoRegex))
             {
                 return "Valid Mobile No";
             }
@@ -115,7 +115,7 @@ namespace UserRegistration
         {
             Console.WriteLine("Enter your password");
             string password = Console.ReadLine();
-            if (ValidatePassword(password) == true)
+            if (Validation(password, passwordRegex))
             {
                 Console.WriteLine("Valid Password");
             }
@@ -126,7 +126,7 @@ namespace UserRegistration
         }
         public string Password(string password)
         {
-            if (ValidatePassword(password) == true)
+            if (Validation(password, passwordRegex))
             {
                 return "Valid Password";
             }
