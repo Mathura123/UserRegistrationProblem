@@ -179,5 +179,26 @@ namespace UserRegistrationUTests
                 Assert.AreEqual(expectedResult, e.Message);
             }
         }
+        [TestMethod]
+        [DataRow("Ram", "^[A-Z][a-z]{2,}$")]//Valid First Name with firstNameRegex
+        [DataRow("Shukhla", "^[A-Z][a-z]{2,}$")]//Valid Last Name with lastNameRegex
+        [DataRow("abc@yahoo.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]//Valid Email Ids with emailRegex
+        [DataRow("abc-100@yahoo.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc-100@yahoo.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc-100@yahoo.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc-100@yahoo.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc.100@abc.com.au", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc@1.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc@gmail.com.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("abc+100@gmail.com", "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$")]
+        [DataRow("0 8978675645", "^[0-9]+[ ][1-9][0-9]{9}$")]//Valid Mobile No with mobileNoRegex
+        [DataRow("Pass@123word", "^.*(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])(?=^[A-Za-z0-9]*[^a-zA-Z0-9][A-Za-z0-9]*$)")]//Valid Password with passwordRegex
+        public void Valid_Details_Should_Return_True_In_Validate_Lambda_Function(string detail,string regex)
+        {
+            bool expected = true;
+            Registration registrationObj = new Registration();
+            bool result = registrationObj.Validation(detail, regex);
+            Assert.AreEqual(expected, result);
+        }
     }
 }

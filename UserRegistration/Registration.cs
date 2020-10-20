@@ -12,7 +12,7 @@ namespace UserRegistration
         string emailRegex = "^[a-zA-z0-9]+([-.+_][a-zA-Z0-9]+)*[@][a-zA-z0-9]+([.][a-zA-z]{2,}){1,2}$";
         string mobileNoRegex = "^[0-9]+[ ][1-9][0-9]{9}$";
         string passwordRegex = "^.*(?=.{8,}$)(?=.*[A-Z])(?=.*[0-9])(?=^[A-Za-z0-9]*[^a-zA-Z0-9][A-Za-z0-9]*$)";
-        Func<string, string, bool> Validation = (string detail, string regex) => Regex.IsMatch(detail, regex);
+        public Func<string, string, bool> Validation = (string detail, string regex) => Regex.IsMatch(detail, regex);
         public void FirstName()
         {
             Console.WriteLine("Enter your First Name");
